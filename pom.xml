@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.seeburger.webedi</groupId>
+    <artifactId>webedi-framework-dependency-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>webedi-framework-dependency-parent</name>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.2</version>
+    </parent>
+
+    <properties>
+        <webedi.spring-boot-version>2.6.2</webedi.spring-boot-version>
+        <webedi.spring-cloud.version>2021.0.0</webedi.spring-cloud.version>
+        <webedi.nacos.version>2021.1</webedi.nacos.version>
+        <webedi.discovery.version>2021.1</webedi.discovery.version>
+        <webedi.mysql.version>5.1.49</webedi.mysql.version>
+        <webedi.pagehelper.version>1.4.1</webedi.pagehelper.version>
+        <webedi.springdoc.version>1.6.5</webedi.springdoc.version>
+        <webedi.commons-lang3.version>3.12.0</webedi.commons-lang3.version>
+        <webedi.gson.version>2.8.9</webedi.gson.version>
+        <webedi.fastjson.version>1.2.79</webedi.fastjson.version>
+        <webedi.maven-compiler-plugin.version>3.9.0</webedi.maven-compiler-plugin.version>
+        <webedi.maven-jar-plugin.version>3.2.2</webedi.maven-jar-plugin.version>
+        <webedi.maven-source-plugin.version>3.2.0</webedi.maven-source-plugin.version>
+        <webedi.dockerfile-maven-plugin.version>1.4.13</webedi.dockerfile-maven-plugin.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <snapshot.repo>47.103.98.137:8881</snapshot.repo>
+        <webedi.common-starter.version>1.0.0-SNAPSHOT</webedi.common-starter.version>
+        <webedi.jasypt.version>3.0.4</webedi.jasypt.version>
+        <webedi.jwt.version>3.18.3</webedi.jwt.version>
+        <webedi.mica.version>2.6.3</webedi.mica.version>
+        <webedi.job.version>2.3.0</webedi.job.version>
+        <webedi.xstream.version>1.4.19</webedi.xstream.version>
+        <webedi.fenix.version>2.7.0</webedi.fenix.version>
+        <webedi.poi.version>5.2.2</webedi.poi.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- spring cloud -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${webedi.spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.seeburger.webedi</groupId>
+                <artifactId>common-spring-cloud-starter</artifactId>
+                <version>${webedi.common-starter.version}</version>
+            </dependency>
+            <!-- nacos -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+                <version>${webedi.nacos.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                <version>${webedi.discovery.version}</version>
+            </dependency>
+            <!-- db -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${webedi.mysql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-jpa</artifactId>
+                <version>${webedi.spring-boot-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.blinkfox</groupId>
+                <artifactId>fenix-spring-boot-starter</artifactId>
+                <version>${webedi.fenix.version}</version>
+            </dependency>
+            <!-- swagger -->
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-ui</artifactId>
+                <version>${webedi.springdoc.version}</version>
+            </dependency>
+            <!-- commons -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${webedi.commons-lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${webedi.gson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${webedi.fastjson.version}</version>
+            </dependency>
+            <!-- encrypt -->
+            <dependency>
+                <groupId>com.github.ulisesbocchio</groupId>
+                <artifactId>jasypt-spring-boot-starter</artifactId>
+                <version>${webedi.jasypt.version}</version>
+            </dependency>
+            <!-- jwt -->
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>${webedi.jwt.version}</version>
+            </dependency>
+            <!-- mica -->
+            <dependency>
+                <groupId>net.dreamlu</groupId>
+                <artifactId>mica-captcha</artifactId>
+                <version>${webedi.mica.version}</version>
+            </dependency>
+            <!-- job -->
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>${webedi.job.version}</version>
+            </dependency>
+            <!-- xml -->
+            <dependency>
+                <groupId>com.thoughtworks.xstream</groupId>
+                <artifactId>xstream</artifactId>
+                <version>${webedi.xstream.version}</version>
+            </dependency>
+            <!-- poi -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${webedi.poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${webedi.poi.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${webedi.maven-compiler-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${webedi.maven-jar-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>${webedi.maven-source-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.spotify</groupId>
+                    <artifactId>dockerfile-maven-plugin</artifactId>
+                    <version>${webedi.dockerfile-maven-plugin.version}</version>
+                    <configuration>
+                        <dockerfile>src/main/resources/Dockerfile</dockerfile>
+                        <repository>seeburger/${project.build.finalName}</repository>
+                        <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+                        <tag>${project.version}</tag>
+                        <buildArgs>
+                            <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+                            <JAR_NAME>${project.build.finalName}.jar</JAR_NAME>
+                        </buildArgs>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>Nexus Snapshots Repository Pro</name>
+            <url>http://${snapshot.repo}/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+</project>
