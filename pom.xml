@@ -20,8 +20,8 @@
     <properties>
         <webedi.spring-boot-version>2.6.2</webedi.spring-boot-version>
         <webedi.spring-cloud.version>2021.0.0</webedi.spring-cloud.version>
-        <webedi.nacos.version>2021.1</webedi.nacos.version>
-        <webedi.discovery.version>2021.1</webedi.discovery.version>
+        <webedi.nacos.version>2021.0.1.0</webedi.nacos.version>
+        <webedi.discovery.version>2021.0.1.0</webedi.discovery.version>
         <webedi.mysql.version>5.1.49</webedi.mysql.version>
         <mssql-connector-java.version>7.4.1.jre8</mssql-connector-java.version>
         <webedi.pagehelper.version>1.4.1</webedi.pagehelper.version>
@@ -67,11 +67,28 @@
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
                 <version>${webedi.nacos.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.alibaba.nacos</groupId>
+                        <artifactId>nacos-client</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
                 <version>${webedi.discovery.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.alibaba.nacos</groupId>
+                        <artifactId>nacos-client</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.nacos</groupId>
+                <artifactId>nacos-client</artifactId>
+                <version>2.3.2</version>
             </dependency>
             <!-- db -->
             <dependency>
